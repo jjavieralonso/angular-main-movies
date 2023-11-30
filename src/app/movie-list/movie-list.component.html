@@ -1,0 +1,33 @@
+<app-movie-sort (sortMovies)="sortMovies($event)"></app-movie-sort>
+<div class="movie-list">
+  <div *ngFor="let movie of movies" class="movie">
+    <img
+      [src]="movie.coverImage"
+      alt="{{ movie.title }} Cover Image"
+      (click)="goToDetails(movie.id)"
+    />
+    <div class="movie-data">
+      <h1>{{ movie.title }}</h1>
+      <h2>
+        {{ movie.rating }}
+        <img src="assets/svgs/star.svg" alt="star rating" /> -
+        {{ movie.duration }}
+      </h2>
+      <p>{{ movie.description }}</p>
+    </div>
+    <button
+      class="btn-add-watchlist"
+      (click)="addToWatchlist(movie)"
+      *ngIf="getButtonText(movie) === 'Add to Watchlist'"
+    >
+      Add to Watchlist
+    </button>
+    <button
+      class="btn-add-watchlist btn-added-watchlist"
+      *ngIf="getButtonText(movie) === 'Added to Watchlist'"
+      (click)="removeFromWatchlist(movie)"
+    >
+      On my watchlist
+    </button>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="movie-details">
+  <img class="cover-image" [src]="movie.coverImage" alt="{{ movie.title }} Cover Image" />
+  <div class="movie-data">
+    <h2>
+      {{ movie.title }}
+      <button
+        class="btn-add-watchlist"
+        (click)="addToWatchlist(movie)"
+        *ngIf="getButtonText(movie) === 'Add to Watchlist'"
+      >
+        Add to Watchlist
+      </button>
+      <button
+        class="btn-add-watchlist btn-added-watchlist"
+        *ngIf="getButtonText(movie) === 'Added to Watchlist'"
+        (click)="removeFromWatchlist(movie)"
+      >
+        On my watchlist
+      </button>
+    </h2>
+    <p>{{ movie.description }}</p>
+    <p>Rating: {{ movie.rating }} <img src="assets/svgs/star.svg" class="star-svg" alt="star rating" /></p>
+    <p>Duration: {{ movie.duration }}</p>
+    <p>Genre: {{ movie.genre }}</p>
+    <p>Released Date: {{ movie.releaseDate }}</p>
+
+    <iframe
+      *ngIf="movie.id == 1"
+      src="https://www.youtube.com/embed/LdOM0x0XDMo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      *ngIf="movie.id == 2"
+      src="https://www.youtube.com/embed/tg52up16eq0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      *ngIf="movie.id == 3"
+      src="https://www.youtube.com/embed/qGqiHJTsRkQ"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      *ngIf="movie.id == 4"
+      src="https://www.youtube.com/embed/d96cjJhvlMA"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <iframe
+      *ngIf="movie.id == 5"
+      src="https://www.youtube.com/embed/tmeOjFno6Do"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+<a href="/movies"><span>⬅ All movies</span></a>
